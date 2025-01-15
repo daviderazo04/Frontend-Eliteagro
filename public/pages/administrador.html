@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Elite Agro</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/estilo_responsive.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index_updated.html">
+                <img src="../images/logo.png" alt="Logo" height="50" width="50">
+                Elite Agro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index_updated.html">Inicio</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="logoutButton" class="btn btn-outline-secondary">
+                        <i class="fas fa-user"></i> Cerrar sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-4">Panel de Administración</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="facturas.html" class="text-decoration-none">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-file-invoice fa-3x text-primary"></i>
+                            <h5 class="mt-3">Facturas</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="clientes.html" class="text-decoration-none">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-users fa-3x text-success"></i>
+                            <h5 class="mt-3">Clientes</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="adminproductos.html" class="text-decoration-none">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-boxes fa-3x text-warning"></i>
+                            <h5 class="mt-3">Productos</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="sugerencias.html" class="text-decoration-none">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-lightbulb fa-3x text-danger"></i>
+                            <h5 class="mt-3">Sugerencias</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section bg-dark text-light pt-5 pb-3 mt-5">
+        <div class="container text-center">
+            <p>© 2024 Elite Agro. Todos los derechos reservados.</p>
+            <a href="#" class="text-light mx-2"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="#" class="text-light mx-2"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="#" class="text-light mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Cerrar sesión
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            localStorage.removeItem('username');
+            localStorage.removeItem('role');
+            window.location.href = 'iniciar_sesion.html';
+        });
+    </script>
+</body>
+
+</html>

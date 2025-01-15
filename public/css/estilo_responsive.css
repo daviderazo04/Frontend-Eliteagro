@@ -1,0 +1,795 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+h1 {
+    color: #333;
+}
+
+label {
+    margin-right: 10px;
+}
+
+select {
+    margin-right: 20px;
+    padding: 5px 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dark {
+    background-color: #333;
+    color: white;
+}
+
+.light {
+    background-color: #fff;
+    color: #333;
+}
+
+.small {
+    font-size: 12px;
+}
+
+.medium {
+    font-size: 16px;
+}
+
+.large {
+    font-size: 20px;
+}
+
+.relleno {
+    flex: 1;
+
+}
+
+/* Estilo de Productos con Imágenes Rectangulares Verticales */
+.productos-section .card {
+    border-radius: 0.5em;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.productos-section .card:hover {
+    transform: scale(1.03);
+}
+
+.productos-section .card-img-top {
+    width: 100%;
+    height: 25em;
+    /* Tamaño rectangular vertical */
+    object-fit: cover;
+    border-bottom: 0.1em solid #ddd;
+}
+
+/* Estilo de Servicios con Imágenes Cuadradas */
+.servicios-section .card-servicio {
+    border-radius: 0.5em;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.servicios-section .card-servicio:hover {
+    transform: scale(1.03);
+}
+
+.servicios-section .card-servicio .card-img-top {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-bottom: 0.1em solid #ddd;
+}
+
+/* Estilo adicional para el contador del carrito */
+#contadorCarrito {
+    transform: translate(-50%, -50%);
+    /* Asegura el centrado sobre el carrito */
+    font-size: 0.75rem;
+    /* Tamaño del texto */
+    font-weight: bold;
+    /* Texto en negrita */
+    min-width: 1.5rem;
+    /* Ancho mínimo del contador */
+    min-height: 1.5rem;
+    /* Altura mínima del contador */
+    display: flex;
+    /* Centra el contenido */
+    align-items: center;
+    /* Alinea verticalmente */
+    justify-content: center;
+    /* Alinea horizontalmente */
+    color: white;
+    /* Texto blanco */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    /* Sombra flotante */
+    z-index: 10;
+    /* Asegura que esté visible */
+}
+
+
+
+/* Hero Section - Carrusel estilo simplificado */
+.hero-section {
+    position: relative;
+}
+
+.hero-section .carousel-item {
+    height: 90vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-section .carousel-caption {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0.125em 0.125em 0.625em rgba(0, 0, 0, 0.7);
+}
+
+#botonRegistrarse {
+    background-color: #1c7a45;
+    /* Color de fondo verde */
+    color: white;
+    /* Color del texto en blanco */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease;
+    /* Efecto suave al cambiar el color */
+}
+
+#botonRegistrarse:hover {
+    background-color: #008000;
+    /* Color más oscuro al pasar el mouse */
+}
+
+
+.hero-section .carousel-caption h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.hero-section .carousel-caption p {
+    font-size: 1.25em;
+    margin-bottom: 1em;
+}
+
+.btn-learn-more {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 0.8em 1.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: 0.3em;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-learn-more:hover {
+    background-color: #45a049;
+}
+
+/* Botones de Navegación del Carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1em;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.video-gallery {
+    width: 100%;
+    /* Ajusta al ancho de la columna */
+    height: 420px;
+    /* Altura uniforme */
+    object-fit: cover;
+    /* Asegura que el contenido del video se ajuste al contenedor */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Agrega una sombra ligera */
+}
+
+/* Navbar */
+.navbar-brand img {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-size: 1em;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #769176;
+}
+
+/* Botones de carrito e iniciar sesión */
+.btn-outline-primary,
+.btn-outline-secondary {
+    color: #4CAF50;
+    border-color: #4CAF50;
+    font-size: 0.9em;
+    padding: 0.5em 1em;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Galería de imágenes */
+.galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 0.938em;
+}
+
+.principal {
+    width: 100%;
+    height: auto;
+    max-height: 30em;
+    object-fit: contain;
+    border-radius: 0.625em;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+}
+
+.miniaturas {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25em;
+}
+
+.miniaturas img {
+    flex: 1;
+    max-width: 10em;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 0.313em;
+    border: 0.125em solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.miniaturas img:hover {
+    border-color: #4CAF50;
+}
+
+.custom-video-player {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.custom-video-player video {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+
+button,
+input[type="range"] {
+    margin: 0 5px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="range"]:hover {
+    opacity: 0.8;
+}
+
+
+
+/* Color de los botones de pestaña */
+.nav-tabs .nav-link {
+    color: #4CAF50;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #dcdcdc;
+    color: #4CAF50;
+    border-color: #dcdcdc;
+}
+
+/* Descripción del producto */
+.descripcion h2 {
+    font-size: 1.75em;
+    color: #333;
+    margin-top: 1.875em;
+}
+
+.descripcion p {
+    font-size: 1.125em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.precio {
+    display: flex;
+    gap: 0.625em;
+    align-items: center;
+}
+
+.precio-original {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.precio-descuento {
+    color: #4CAF50;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.btn-comprar {
+    padding: 0.938em;
+    font-size: 1.125em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.313em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #45a049;
+}
+
+/* Sección de Descuentos */
+.descuento-section {
+    padding: 2em 0;
+    background-color: #fff;
+}
+
+.descuento-section h2 {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.descuento-section .producto {
+    text-align: center;
+    padding: 1em;
+    border: 0.06em solid #ddd;
+    border-radius: 0.5em;
+    transition: transform 0.3s;
+    background-color: #fff;
+}
+
+.descuento-section .producto:hover {
+    transform: scale(1.05);
+}
+
+.descuento-section .producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+}
+
+.descuento-section .producto h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0.5em 0;
+}
+
+.descuento-section .producto p {
+    color: #4CAF50;
+    font-size: 1em;
+}
+
+.descuento-section .producto a {
+    text-decoration: none;
+}
+
+/* Estilos para el Modal de Imagen */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    padding-top: 3.75em;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 43.75em;
+}
+
+#caption {
+    margin: 0.9375em auto;
+    text-align: center;
+    color: #ccc;
+    font-size: 1.2em;
+}
+
+.close {
+    position: absolute;
+    top: 1.25em;
+    right: 2.1875em;
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Footer Completo */
+.footer-section {
+    background-color: #333;
+    padding: 2em 0;
+    color: #fff;
+}
+
+.footer-section h4 {
+    font-size: 1.3em;
+    color: #4CAF50;
+    margin-bottom: 0.5em;
+}
+
+.footer-section p {
+    color: #ddd;
+    font-size: 0.9em;
+}
+
+.footer-section .gallery img {
+    width: 30%;
+    margin: 0.3em;
+    border-radius: 0.5em;
+}
+
+.footer-section a {
+    color: #fff;
+    transition: color 0.3s;
+    font-size: 1em;
+}
+
+.footer-section a:hover {
+    color: #4CAF50;
+}
+
+.footer-section .container .text-center p {
+    margin-top: 1em;
+    font-size: 0.9em;
+}
+
+
+.footer-section .text-center a {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 0.5em;
+}
+
+.footer-section .text-center a:hover {
+    color: #4CAF50;
+}
+
+/* Formulario de Contacto */
+.footer-section form .form-control {
+    background-color: #444;
+    color: #fff;
+    border: 0.06em solid #555;
+    border-radius: 0.3em;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+}
+
+.footer-section form .form-control::placeholder {
+    color: #bbb;
+}
+
+.footer-section form button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.75em;
+    font-size: 1em;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer-section form button:hover {
+    background-color: #45a049;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .hero-section .carousel-item {
+        height: 50em;
+    }
+
+    .hero-section .carousel-caption h1 {
+        font-size: 2em;
+    }
+
+    .hero-section .carousel-caption p {
+        font-size: 1em;
+    }
+
+    .btn-learn-more {
+        font-size: 0.95em;
+        padding: 0.7em 1.3em;
+    }
+
+    .footer-section .gallery img {
+        width: 45%;
+    }
+
+    .footer-section form .form-control,
+    .footer-section form button {
+        font-size: 0.85em;
+    }
+
+    .navbar-brand img {
+        height: 2em;
+        width: 2em;
+    }
+
+    .descuento-section h2 {
+        font-size: 1.3em;
+    }
+
+    .descuento-section .producto h3 {
+        font-size: 1em;
+    }
+
+    .descuento-section .producto p {
+        font-size: 0.9em;
+    }
+
+    /* Galería de imágenes en detalle de producto */
+    .galeria {
+        max-width: 100%;
+        overflow-x: hidden;
+        padding: 0 1%;
+    }
+
+    .miniaturas {
+        justify-content: space-around;
+        gap: 0.5em;
+    }
+
+    .miniaturas img {
+        max-width: 18%;
+        height: auto;
+    }
+
+    /* Ajuste para el botón de cierre en el modal */
+    .close {
+        top: 1.25em;
+        right: 1.5em;
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section .carousel-item {
+        height: 40em;
+    }
+
+    .hero-section .carousel-caption h1 {
+        font-size: 1.8em;
+    }
+
+    .hero-section .carousel-caption p {
+        font-size: 0.9em;
+    }
+
+    .btn-learn-more {
+        font-size: 0.9em;
+        padding: 0.6em 1.2em;
+    }
+
+    .navbar .form-control,
+    .navbar .btn-outline-success,
+    .navbar .btn-outline-primary,
+    .navbar .btn-outline-secondary {
+        width: 100%;
+        margin-top: 0.5em;
+    }
+
+    .navbar .btn-outline-primary,
+    .navbar .btn-outline-secondary {
+        margin-top: 0.5em;
+    }
+
+    .navbar .d-flex.align-items-center {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 1em;
+    }
+
+    .footer-section .gallery img {
+        width: 100%;
+    }
+
+    .footer-section .text-center a {
+        font-size: 1.2em;
+    }
+
+    .footer-section h4 {
+        font-size: 1.1em;
+    }
+
+    .descuento-section h2 {
+        font-size: 1.1em;
+    }
+
+    .footer-section p {
+        font-size: 0.8em;
+    }
+
+    /* Galería de imágenes en detalle de producto */
+    .galeria {
+        max-width: 100%;
+        padding: 0 2%;
+    }
+
+    .principal {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .miniaturas img {
+        max-width: 22%;
+    }
+
+    /* Ajuste para el botón de cierre en el modal */
+    .close {
+        top: 1em;
+        right: 1em;
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section .carousel-item {
+        height: 30em;
+    }
+
+    .hero-section .carousel-caption h1 {
+        font-size: 1.5em;
+    }
+
+    .hero-section .carousel-caption p {
+        font-size: 0.85em;
+    }
+
+    .btn-learn-more {
+        font-size: 0.85em;
+        padding: 0.5em 1em;
+    }
+
+    .navbar-brand img {
+        height: 1.8em;
+        width: 1.8em;
+    }
+
+    .footer-section form .form-control,
+    .footer-section form button {
+        font-size: 0.8em;
+    }
+
+    .descuento-section h2 {
+        font-size: 1em;
+    }
+
+    .descuento-section .producto h3 {
+        font-size: 0.9em;
+    }
+
+    .descuento-section .producto p {
+        font-size: 0.8em;
+    }
+
+    /* Galería de imágenes en detalle de producto */
+    .galeria {
+        max-width: 100%;
+        padding: 0 3%;
+    }
+
+    .principal {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .miniaturas img {
+        max-width: 25%;
+    }
+
+    /* Ajuste para el botón de cierre en el modal */
+    .close {
+        top: 0.5em;
+        right: 0.5em;
+        font-size: 1.8em;
+    }
+
+    /* Ajuste del contenido del modal para pantallas pequeñas */
+    .modal-content {
+        width: 90%;
+    }
+}

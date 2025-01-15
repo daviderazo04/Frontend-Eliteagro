@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Producto - Elite Agro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/estilo_responsive.css"> <!-- Enlace al CSS -->
+
+    <script>
+        // JavaScript para cambiar la imagen principal al hacer clic en una miniatura
+        function cambiarImagen(src) {
+            document.getElementById('imagen-principal').src = src;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navbar existente -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../../index_updated.html">
+                <img src="../../images/logo.png" alt="Logo" height="50" width="50">
+                Elite Agro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index_updated.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="pages/productos.html" class="nav-link dropdown-toggle" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../productos.html">Alimentos y Suplementos</a></li>
+                            <li><a class="dropdown-item" href="../productos.html">Equipos de Manejo</a></li>
+                            <li><a class="dropdown-item" href="../productos.html">Equipamiento Ecuestre</a></li>
+                            <li><a class="dropdown-item" href="../productos.html">Medicación y Veterinaria</a></li>
+                            <li><a class="dropdown-item" href="../productos.html">Infraestructura</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../servicios.html" class="nav-link">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../nosotros.html" class="nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../contactame.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-auto me-auto align-items-center">
+                    <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+                <div class="d-flex align-items-center ms-auto">
+                    <a href="#" class="btn btn-outline-primary me-4">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                    </a>
+                    <a href="#" class="btn btn-outline-secondary">
+                        <i class="fas fa-user"></i> Iniciar sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Detalle del Producto -->
+    <section class="detalle-producto container my-5 pt-5">
+        <div class="row">
+            <h2>Producto en descuento !!</h2>
+            <!-- Galería de imágenes del producto -->
+            <div class="col-md-7">
+                <img id="imagen-principal" src="../../images/productos/jaquima.jpg" alt="Montura"
+                    class="img-fluid principal mb-3">
+                <div class="miniaturas d-flex justify-content-center">
+                    <img src="../../images/productos/jaquima.jpg" alt="Miniatura 1" class="img-thumbnail me-2"
+                        style="cursor: pointer;" onclick="cambiarImagen(this.src)">
+                    <img src="../../images/productos/jaquima2.jpg" alt="Miniatura 2" class="img-thumbnail me-2"
+                        style="cursor: pointer;" onclick="cambiarImagen(this.src)">
+                    <img src="../../images/productos/jaquima3.jpg" alt="Miniatura 3" class="img-thumbnail"
+                        style="cursor: pointer;" onclick="cambiarImagen(this.src)">
+                </div>
+            </div>
+
+            <!-- Descripción del producto -->
+            <div class="col-md-5 descripcion">
+                <h2 class="mb-4">Montura 100% Cuero</h2>
+                <p>
+                    Esta montura de cuero genuino ofrece seguridad y confort para los jinetes más exigentes. Ideal para
+                    cabalgatas de larga duración.
+                </p>
+                <ul class="list-unstyled">
+                    <li><strong>Material:</strong> Cuero 100% genuino</li>
+                    <li><strong>Tamaño:</strong> 17 pulgadas</li>
+                    <li><strong>Color:</strong> Marrón oscuro</li>
+                    <li><strong>Peso:</strong> 6 kg</li>
+                </ul>
+
+                <div class="precio mt-4">
+                    <span class="precio-original text-muted me-3" style="text-decoration: line-through;">$250.00</span>
+                    <span class="precio-descuento text-success fs-3">$175.00</span>
+                </div>
+
+                <button class="btn btn-success btn-lg mt-4">Añadir al Carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Completo -->
+    <footer class="footer-section bg-dark text-light pt-5 pb-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Galería</h4>
+                    <p>Explora nuestras mejores fotos.</p>
+                    <div class="gallery">
+                        <img src="../../images/footer/galeria1.jpg" alt="Galería 1" class="img-thumbnail">
+                        <img src="../../images/footer/galeria2.jpg" alt="Galería 2" class="img-thumbnail">
+                        <img src="../../images/footer/galeria3.jpg" alt="Galería 3" class="img-thumbnail">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contacto</h4>
+                    <p>Dirección: Calle Manuel Valdivieso, Sector Cotacachi</p>
+                    <p>Teléfono: (123) 456-7890</p>
+                    <p>Email: contacto@eliteagro.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Envía tus datos para brindarte más información!</h4>
+                    <form>
+                        <input type="text" class="form-control mb-2" placeholder="Nombre">
+                        <input type="email" class="form-control mb-2" placeholder="Correo">
+                        <textarea class="form-control mb-2" placeholder="Mensaje"></textarea>
+                        <button class="btn btn-outline-light w-100">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>© 2024 Elite Agro. Todos los derechos reservados.</p>
+                <a href="#" class="text-light mx-2"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#" class="text-light mx-2"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#" class="text-light mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

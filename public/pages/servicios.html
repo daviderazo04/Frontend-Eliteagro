@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios - Elite Agro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/estilo_responsive.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index_updated.html">
+                <img src="../images/logo.png" alt="Logo" height="50" width="50">
+                Elite Agro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index_updated.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="productos.html" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="productos.html">Alimentos y Suplementos</a></li>
+                            <li><a class="dropdown-item" href="productos.html">Equipos de Manejo</a></li>
+                            <li><a class="dropdown-item" href="productos.html">Equipamiento Ecuestre</a></li>
+                            <li><a class="dropdown-item" href="productos.html">Medicación y Veterinaria</a></li>
+                            <li><a class="dropdown-item" href="productos.html">Infraestructura</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="servicios.html" class="nav-link">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="nosotros.html" class="nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contactame.html" class="nav-link">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="preferencias.html" class="nav-link">Preferencias</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-auto me-auto align-items-center">
+                    <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+                <div class="d-flex align-items-center ms-auto">
+                    <a href="carrito.html" class="btn btn-outline-primary me-4 position-relative">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                        <span id="contadorCarrito"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
+                    </a>
+                    <a href="iniciar_sesion.html" class="btn btn-outline-secondary">
+                        <i class="fas fa-user"></i> Iniciar sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Sección de Servicios -->
+    <section class="servicios-section my-5">
+        <div class="container mt-5 pt-5">
+            <h2 class="text-center mb-4">Nuestros Servicios</h2>
+            <div class="row g-4">
+                <!-- Servicio 1 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm card-servicio">
+                        <img src="../images/servicios/sistemas.jpg" class="card-img-top"
+                            alt="Sistema de Información Agrícola" loading="lazy">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-dark">Sistemas de Información Agrícola</h5>
+                            <p class="card-text">Optimiza el monitoreo y gestión de tus cultivos con tecnología
+                                avanzada.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm card-servicio">
+                        <img src="../images/servicios/ordeño.jpg" class="card-img-top" alt="Máquinas de Ordeño"
+                            loading="lazy">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-dark">Máquinas de Ordeño Automáticas</h5>
+                            <p class="card-text">Aumenta la eficiencia de tu producción con sistemas de ordeño
+                                automatizados.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm card-servicio">
+                        <img src="../images/servicios/automatizacion.jpg" class="card-img-top"
+                            alt="Automatización Agrícola" loading="lazy">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-dark">Automatización Agrícola</h5>
+                            <p class="card-text">Implementa soluciones de automatización que facilitan las labores
+                                diarias.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm card-servicio">
+                        <img src="../images/servicios/sistemas_riego.jpg" class="card-img-top"
+                            alt="Sistemas de Riego Inteligentes" loading="lazy">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-dark">Sistemas de Riego Inteligentes</h5>
+                            <p class="card-text">Optimiza el uso de agua con sistemas de riego eficientes y controlados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm card-servicio">
+                        <img src="../images/servicios/salud_animal.jpg" class="card-img-top"
+                            alt="Servicios de Salud Animal" loading="lazy">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-dark">Servicios de Salud Animal</h5>
+                            <p class="card-text">Asegura el bienestar de tus animales con programas de salud
+                                especializados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer Completo -->
+    <footer class="footer-section bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Galería</h4>
+                    <p>Explora nuestras mejores fotos.</p>
+                    <div class="gallery">
+                        <img src="../images/footer/galeria1.jpg" alt="Galería 1" class="img-thumbnail" loading="lazy">
+                        <img src="../images/footer/galeria2.jpg" alt="Galería 2" class="img-thumbnail" loading="lazy">
+                        <img src="../images/footer/galeria3.jpg" alt="Galería 3" class="img-thumbnail" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contacto</h4>
+                    <p>Dirección: Calle Manuel Valdivieso, Sector Cotacachi</p>
+                    <p>Teléfono: (123) 456-7890</p>
+                    <p>Email: contacto@eliteagro.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Interesado en Nuestros Servicios?</h4>
+                    <p>¡No dude en escribirnos para obtener más información sobre nuestros servicios o cualquier
+                        consulta!</p>
+                    <form>
+                        <input type="text" class="form-control mb-2" placeholder="Nombre">
+                        <input type="email" class="form-control mb-2" placeholder="Correo">
+                        <textarea class="form-control mb-2" placeholder="Mensaje"></textarea>
+                        <button class="btn btn-outline-light w-100">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>© 2024 Elite Agro. Todos los derechos reservados.</p>
+                <a href="#" class="text-light mx-2"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#" class="text-light mx-2"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#" class="text-light mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="../app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Agro</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/estilo_responsive.css">
+    <!-- JavaScript consolidado -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar existente -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index_updated.html">
+                <img src="images/logo.png" alt="Logo" height="50" width="50">
+                Elite Agro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="pages/productos.html" class="nav-link dropdown-toggle" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="pages/productos.html">Alimentos y Suplementos</a></li>
+                            <li><a class="dropdown-item" href="pages/productos.html">Equipos de Manejo</a></li>
+                            <li><a class="dropdown-item" href="pages/productos.html">Equipamiento Ecuestre</a></li>
+                            <li><a class="dropdown-item" href="pages/productos.html">Medicación y Veterinaria</a></li>
+                            <li><a class="dropdown-item" href="pages/productos.html">Infraestructura</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/servicios.html" class="nav-link">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/nosotros.html" class="nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/contactame.html" class="nav-link">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/preferencias.html" class="nav-link">Preferencias</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-auto me-auto align-items-center">
+                    <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+                <div class="d-flex align-items-center ms-auto">
+                    <a href="pages/carrito.html" class="btn btn-outline-primary me-4 position-relative">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                        <span id="contadorCarrito"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
+                    </a>
+                    <a href="pages/iniciar_sesion.html" class="btn btn-outline-secondary">
+                        <i class="fas fa-user"></i> Iniciar sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero con Carrusel Estilo Actualizado -->
+    <header class="hero-section">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/ejemplares/ejemplar1.jpg" class="d-block w-100" alt="Imagen 1">
+                    <div class="carousel-caption d-md-block">
+                        <h1>Bienvenidos a Elite Agro</h1>
+                        <p>Genética y Calidad Superior</p>
+                        <a href="#seccion-destino" class="btn btn-learn-more">Saber más</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/ejemplares/ejemplar2.jpg" class="d-block w-100" alt="Imagen 2" loading="lazy">
+                    <div class="carousel-caption d-md-block">
+                        <h1>La Mejor Selección</h1>
+                        <p>Productos Ecológicos y Equipos</p>
+                        <a href="#seccion-destino" class="btn btn-learn-more">Saber más</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/ejemplares/ejemplar5.jpg" class="d-block w-100" alt="Imagen 3" loading="lazy">
+                    <div class="carousel-caption d-md-block">
+                        <h1>Conectados con la Naturaleza</h1>
+                        <p>Calidad de Vida para tus Animales</p>
+                        <a href="#seccion-destino" class="btn btn-learn-more">Saber más</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- Sección de Granja Detallada -->
+    <section class="granja-detalle-section my-5">
+        <div class="container">
+            <div class="row">
+                <!-- Imagen Principal y Texto Descriptivo -->
+                <div class="col-md-6">
+                    <img src="images/empresa/nosotros1.jpg" alt="Nuestra Granja" class="img-fluid mb-4 rounded">
+                </div>
+                <div class="col-md-6">
+                    <h3 class="text-success">Fundada en 1999</h3>
+                    <h2 class="fw-bold">Nuestra Granja</h2>
+                    <h4>¿Quiénes Somos?</h4>
+                    <p>Elite Agro es una empresa 100% familiar con una sólida trayectoria en el sector agrícola. Desde
+                        nuestros inicios en 1999, nos hemos dedicado al constante mejoramiento génetico de nuestros
+                        animales y ofrecer productos de la más alta calidad y
+                        frescura para contribuir al bienestar de los animales y de la comunidad. Nos especializamos en
+                        brindar alimentos y suplementos cuidadosamente seleccionados para satisfacer las diversas
+                        necesidades de nuestros clientes, asegurando siempre los más altos estándares de calidad y
+                        sostenibilidad.</p>
+                    <div class="nav nav-tabs">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#about">Acerca</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#mission">Nuestra Misión</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#vision">Nuestra Visión</button>
+                    </div>
+                    <div class="tab-content my-3">
+                        <div class="tab-pane fade show active" id="about">
+                            <p>En Elite Agro, nos comprometemos a proporcionar productos frescos y de alta calidad,
+                                obtenidos a través de procesos responsables y sostenibles. Creemos en la importancia de
+                                conectar con la naturaleza y ofrecer soluciones que respeten el medio ambiente, mientras
+                                impulsamos el desarrollo de la agricultura local.</p>
+                        </div>
+                        <div class="tab-pane fade" id="mission">
+                            <p>Nuestra misión es contribuir al desarrollo sostenible y al bienestar de la comunidad
+                                agrícola. Nos esforzamos por ser un socio confiable para nuestros clientes, brindándoles
+                                productos innovadores y de calidad que apoyen el crecimiento y la salud de los animales
+                                y la tierra. Estamos dedicados a crear un impacto positivo y a fomentar prácticas
+                                responsables en la industria.</p>
+                        </div>
+                        <div class="tab-pane fade" id="vision">
+                            <p>Aspiramos a ser un referente de calidad y sostenibilidad en el sector agropecuario,
+                                destacándonos por nuestro compromiso con la excelencia y la responsabilidad social.
+                                Nuestra visión es crear un futuro donde la agricultura y la ganadería coexistan en
+                                armonía con el medio ambiente, y nuestros productos sean reconocidos por su calidad
+                                superior y su impacto positivo en la comunidad.</p>
+                        </div>
+                    </div>
+                    <a href="pages/nosotros.html" class="btn btn-success mt-3">Leer Más</a>
+                </div>
+
+            </div>
+            <!-- Galería de Imágenes -->
+            <div class="row mt-4">
+                <div class="col-3">
+                    <img src="images/empresa/nosotros2.jpg" alt="Galería 1" class="img-fluid rounded"
+                        onclick="openModal(this)">
+                </div>
+                <div class="col-3">
+                    <img src="images/empresa/nosotros4.jpg" alt="Galería 2" class="img-fluid rounded"
+                        onclick="openModal(this)">
+                </div>
+                <div class="col-3">
+                    <img src="images/empresa/nosotros5.jpg" alt="Galería 3" class="img-fluid rounded"
+                        onclick="openModal(this)">
+                </div>
+                <div class="col-3">
+                    <img src="images/empresa/nosotros6.jpg" alt="Galería 4" class="img-fluid rounded"
+                        onclick="openModal(this)">
+                </div>
+            </div>
+            <!-- Galería de Videos -->
+            <div class="row mt-4">
+                <div class="col-3">
+                    <video autoplay loop muted playsinline class="video-gallery">
+                        <source src="images/videos/video1.MOV" type="video/mp4">
+                        <source src="videos/video1.webm" type="video/webm">
+                        <source src="videos/video1.ogv" type="video/ogg">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                </div>
+                <div class="col-3">
+                    <video autoplay loop muted playsinline class="video-gallery">
+                        <source src="images/videos/video2.MOV" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                </div>
+                <div class="col-3">
+                    <video autoplay loop muted playsinline class="video-gallery">
+                        <source src="images/videos/video3.MOV" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                </div>
+                <div class="col-3">
+                    <video autoplay loop muted playsinline class="video-gallery">
+                        <source src="images/videos/video4.MOV" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                </div>
+            </div>
+            <h3>FER BONACHON "Campeonato del mundo SICAB 2024"</h3>
+            <div class="custom-video-player">
+                <video id="video" src="images/videos/Horizontal.mp4" poster="images/videos/portada.png"></video>
+                <div class="controls">
+                    <script>document.addEventListener('DOMContentLoaded', () => {
+                            const video = document.getElementById('video'); // Asegúrate de que el id coincide
+                            const playPause = document.getElementById('playPause');
+                            const seekBar = document.getElementById('seekBar');
+                            const mute = document.getElementById('mute');
+                            const fullscreen = document.getElementById('fullscreen');
+
+                            // Play/Pause Toggle
+                            playPause.addEventListener('click', () => {
+                                if (video.paused) {
+                                    video.play();
+                                    playPause.textContent = '⏸';
+                                } else {
+                                    video.pause();
+                                    playPause.textContent = '▶';
+                                }
+                            });
+
+                            // Update SeekBar
+                            video.addEventListener('timeupdate', () => {
+                                seekBar.value = (video.currentTime / video.duration) * 100;
+                            });
+
+                            // SeekBar Change
+                            seekBar.addEventListener('input', () => {
+                                video.currentTime = (seekBar.value / 100) * video.duration;
+                            });
+
+                            // Mute Toggle
+                            mute.addEventListener('click', () => {
+                                video.muted = !video.muted;
+                                mute.textContent = video.muted ? '🔇' : '🔊';
+                            });
+
+                            // Fullscreen
+                            fullscreen.addEventListener('click', () => {
+                                if (video.requestFullscreen) {
+                                    video.requestFullscreen();
+                                }
+                            });
+                        });</script>
+                    <button id="playPause">▶</button>
+                    <input id="seekBar" type="range" min="0" value="0" step="1">
+                    <button id="mute">🔇</button>
+                    <button id="fullscreen">⛶</button>
+                </div>
+            </div>
+            <!-- Modal de Imagen -->
+            <div id="imageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImage">
+                <div id="caption"></div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Sección de Productos en Descuento -->
+    <!-- Sección de Productos en Descuento -->
+    <section class="descuento-section my-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Productos en Descuento</h2>
+            <div class="row">
+                <!-- Producto 1 -->
+                <div class="col-md-4">
+                    <div class="producto">
+                        <!-- Asegúrate de incluir data-id para redirigir al detalle -->
+                        <a href="detalle_producto.html?id=1" class="text-decoration-none" data-id="1">
+                            <img src="images/productos/montura.png" alt="Montura 100% Cuero" class="img-fluid">
+                            <h3>Montura de Cuero</h3>
+                            <p>20% OFF - Precio especial</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="col-md-4">
+                    <div class="producto">
+                        <a href="detalle_producto.html?id=2" class="text-decoration-none" data-id="2">
+                            <img src="images/productos/jaquima.jpg" alt="Jaquima Equina" class="img-fluid">
+                            <h3>Jaquima Equina</h3>
+                            <p>15% OFF - Precio especial</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="col-md-4">
+                    <div class="producto">
+                        <a href="detalle_producto.html?id=3" class="text-decoration-none" data-id="3">
+                            <img src="images/productos/vitaminab.jpg" alt="Vitaminas" class="img-fluid">
+                            <h3>Vitaminas</h3>
+                            <p>10% OFF - Precio especial</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer Completo -->
+    <footer class="footer-section bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Galería</h4>
+                    <p>Explora nuestras mejores fotos.</p>
+                    <div class="gallery">
+                        <img src="images/footer/galeria1.jpg" alt="Galería 1" class="img-thumbnail" loading="lazy">
+                        <img src="images/footer/galeria2.jpg" alt="Galería 2" class="img-thumbnail" loading="lazy">
+                        <img src="images/footer/galeria3.jpg" alt="Galería 3" class="img-thumbnail" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contacto</h4>
+                    <p>Dirección: Calle Manuel Valdivieso, Sector Cotacachi</p>
+                    <p>Teléfono: (123) 456-7890</p>
+                    <p>Email: contacto@eliteagro.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Envía tus datos para brindarte más información!</h4>
+                    <form>
+                        <input type="text" class="form-control mb-2" placeholder="Nombre">
+                        <input type="email" class="form-control mb-2" placeholder="Correo">
+                        <textarea class="form-control mb-2" placeholder="Mensaje"></textarea>
+                        <button class="btn btn-outline-light w-100">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>© 2024 Elite Agro. Todos los derechos reservados.</p>
+                <a href="#" class="text-light mx-2"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#" class="text-light mx-2"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#" class="text-light mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript para Modal de Imagen -->
+    <script>
+        function openModal(image) {
+            document.getElementById("imageModal").style.display = "block";
+            document.getElementById("modalImage").src = image.src;
+            document.getElementById("caption").innerHTML = image.alt;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
+
+    <script src="app.js" defer></script>
+</body>
+
+</html>
