@@ -17,18 +17,31 @@
 
         <h1 class="text-center mb-4">Gestión de Facturas</h1>
 
-        <div class="mb-3">
-            <button id="loadFacturas" class="btn btn-primary">Presentar Todos</button>
-            <input type="text" id="searchFactura" class="form-control mt-3" placeholder="Buscar por ID o Cliente">
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <button id="loadFacturas" class="btn btn-primary me-3">Presentar Todos</button>
+            <div class="d-flex flex-column flex-md-row gap-2">
+                <div class="input-group">
+                    <input type="text" id="searchFacturaById" class="form-control"
+                        placeholder="Buscar por ID de Factura">
+                    <button id="searchById" class="btn btn-primary">Buscar por ID</button>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="searchFacturaByCedula" class="form-control" placeholder="Buscar por Cédula">
+                    <button id="searchByCedula" class="btn btn-primary">Buscar por Cédula</button>
+                </div>
+            </div>
         </div>
+
+
 
         <table class="table table-hover">
             <thead class="table-light">
                 <tr>
                     <th>ID</th>
                     <th>Cliente</th>
-                    <th>Descripción</th>
-                    <th>Fecha</th>
+                    <th>Dirección</th>
+                    <th>Subtotal</th>
+                    <th>IVA</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
@@ -38,7 +51,35 @@
             </tbody>
         </table>
     </div>
-    <script src="js/facturas.js"></script>
+
+    <!-- Modal para cambiar estado -->
+    <div class="modal fade" id="estadoModal" tabindex="-1" aria-labelledby="estadoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="estadoModalLabel">Cambiar Estado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="estadoForm">
+                        <div class="mb-3">
+                            <label for="estadoSelect" class="form-label">Estado</label>
+                            <select class="form-select" id="estadoSelect">
+                                <option value="CREADO">CREADO</option>
+                                <option value="PAGADO">PAGADO</option>
+                                <option value="ENTREGADO">ENTREGADO</option>
+                                <option value="ANULADO">ANULADO</option>
+                            </select>
+                        </div>
+                        <input type="hidden" id="facturaId">
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="facturas.js"></script>
 </body>
 
 </html>
