@@ -283,34 +283,35 @@ function confirmarCompra() {
         return;
     }
 
-    // Obtener el ID del cliente desde el backend
+    // Obtener el cliente desde el backend usando su email
     fetch(`${backendUrl}/api/clients/by-email?email=${username}`)
         .then(response => {
             if (!response.ok) {
-                throw new Error('No se pudo obtener el ID del cliente.');
+                throw new Error('No se pudo obtener el cliente.');
             }
             return response.json();
         })
-        .then(data => {
-            const client = { id: data.id }; // ID del cliente devuelto por el backend
-            const address = "Pedido de prueba, Quito";
+        .then(clienteData => {
+            // Crear el cuerpo del pedido
+            const client = { id: clienteData.id }; // ID del cliente
+            const address = "Pedido de prueba, Quito"; // Dirección fija por ahora
             const subtotal = carrito.reduce((acc, item) => acc + item.cantidad * item.precio, 0);
-            const iva = subtotal * 0.15;
+            const iva = parseFloat((subtotal * 0.15).toFixed(2)); // Calcular IVA
             const products = carrito.map(item => ({
                 productId: item.id,
                 quantity: item.cantidad,
-                unitPrice: item.precio
+                unitPrice: parseFloat(item.precio.toFixed(2))
             }));
 
             const orderData = {
-                client,
-                address,
-                subtotal,
-                iva,
-                products
+                client, // Cliente asociado
+                address, // Dirección del pedido
+                subtotal: parseFloat(subtotal.toFixed(2)), // Subtotal con formato decimal
+                iva, // IVA calculado
+                products // Productos del pedido
             };
 
-            // Confirmar la compra
+            // Confirmar la compra llamando al endpoint
             return fetch(`${backendUrl}/api/products/create-order`, {
                 method: 'POST',
                 headers: {
@@ -319,14 +320,14 @@ function confirmarCompra() {
                 body: JSON.stringify(orderData)
             });
         })
-        .then(response => response.json()) // Procesar como JSON
+        .then(response => response.json()) // Procesar respuesta como JSON
         .then(data => {
             if (data.status === "success") {
                 alert(`Pedido creado exitosamente. ¡Gracias, ${username}, por tu compra!`);
-                carrito = [];
-                guardarCarrito();
-                actualizarCarrito();
-                cargarCarritoEnTabla();
+                carrito = []; // Vaciar carrito
+                guardarCarrito(); // Guardar carrito vacío
+                actualizarCarrito(); // Actualizar vista del carrito
+                cargarCarritoEnTabla(); // Recargar la tabla del carrito
             } else if (data.status === "error") {
                 if (data.productId) {
                     alert(`Error: Producto con ID ${data.productId} no encontrado.`);
@@ -340,9 +341,11 @@ function confirmarCompra() {
             }
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.error('Error al confirmar la compra:', error);
+            alert('Ocurrió un error al procesar el pedido. Por favor, inténtalo más tarde.');
         });
 }
+
 
 
 
