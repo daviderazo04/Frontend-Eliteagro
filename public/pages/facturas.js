@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const backendUrl = "https://backend-eliteagro-production.up.railway.app"; // URL del backend
+    const backendUrl = "https://backend-eliteagro-production.up.railway.app"; // URL actualizada del backend
     const facturasTable = document.getElementById("facturasTable");
     const loadFacturasButton = document.getElementById("loadFacturas");
     const estadoForm = document.getElementById("estadoForm");
