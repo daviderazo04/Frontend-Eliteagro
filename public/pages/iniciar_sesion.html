@@ -121,6 +121,8 @@
     </footer>
 
     <script>
+        const backendUrl = "https://backend-eliteagro-production.up.railway.app"; // URL del backend
+
         // Función para llenar la lista de compras simuladas
         function renderPurchaseList() {
             const purchaseList = document.getElementById('purchaseList');
@@ -174,7 +176,7 @@
             const loginData = { email: username, password: password };
 
             try {
-                const response = await fetch('http://localhost:8080/api/login', {
+                const response = await fetch(`${backendUrl}/api/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(loginData)
@@ -204,6 +206,7 @@
         // Verificar estado de inicio de sesión al cargar la página
         document.addEventListener('DOMContentLoaded', checkLoginStatus);
     </script>
+
 
 
 

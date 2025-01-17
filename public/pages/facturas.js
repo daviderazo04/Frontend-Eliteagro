@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const backendUrl = "https://backend-eliteagro-production.up.railway.app"; // URL del backend
     const facturasTable = document.getElementById("facturasTable");
     const loadFacturasButton = document.getElementById("loadFacturas");
     const estadoForm = document.getElementById("estadoForm");
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cargar todas las facturas
     loadFacturasButton.addEventListener("click", async () => {
         try {
-            const response = await fetch("http://localhost:8080/api/pedidos/detalles");
+            const response = await fetch(`${backendUrl}/api/pedidos/detalles`);
             if (!response.ok) throw new Error("Error al cargar facturas.");
             const facturas = await response.json();
             renderFacturas(facturas);
@@ -95,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:8080/api/pedidos/detalles/${id}`);
+            const response = await fetch(`${backendUrl}/api/pedidos/detalles/${id}`);
             if (!response.ok) throw new Error("Factura no encontrada.");
             const factura = await response.json();
             renderFacturas([factura]);
@@ -114,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:8080/api/pedidos/detalles/cliente/${cedula}`);
+            const response = await fetch(`${backendUrl}/api/pedidos/detalles/cliente/${cedula}`);
             if (!response.ok) throw new Error("Pedidos no encontrados.");
             const facturas = await response.json();
             if (facturas.length === 0) {
@@ -135,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const nuevoEstado = document.getElementById("estadoSelect").value;
 
         try {
-            const response = await fetch(`http://localhost:8080/api/pedidos/${facturaId}/estado`, {
+            const response = await fetch(`${backendUrl}/api/pedidos/${facturaId}/estado`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -153,36 +154,4 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Error al cambiar el estado.");
         }
     });
-});
-
-const loadFacturasButton = document.getElementById("loadFacturas");
-
-estadoForm.addEventListener("submit", async event => {
-    event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
-    const facturaId = document.getElementById("facturaId").value;
-    const nuevoEstado = document.getElementById("estadoSelect").value;
-
-    try {
-        const response = await fetch(`http://localhost:8080/api/pedidos/${facturaId}/estado`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ estado: nuevoEstado }) // Enviar el nuevo estado
-        });
-
-        if (!response.ok) throw new Error("Error al cambiar el estado de la factura.");
-
-        alert("Estado actualizado con éxito."); // Mensaje de éxito
-
-        // Ocultar el modal después de actualizar
-        const modal = bootstrap.Modal.getInstance(document.getElementById("estadoModal"));
-        modal.hide();
-
-        // Recargar las facturas llamando al botón "Presentar Todos"
-        loadFacturasButton.click();
-    } catch (error) {
-        console.error(error);
-        alert("Error al cambiar el estado.");
-    }
 });

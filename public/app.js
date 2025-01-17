@@ -282,7 +282,7 @@ function confirmarCompra() {
     }
 
     // Obtener el ID del cliente desde el backend
-    fetch(`http://localhost:8080/api/clients/by-email?email=${username}`)
+    fetch(`https://backend-eliteagro-production.up.railway.app/api/clients/by-email?email=${username}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('No se pudo obtener el ID del cliente.');
@@ -309,7 +309,7 @@ function confirmarCompra() {
             };
 
             // Confirmar la compra
-            return fetch('http://localhost:8080/api/products/create-order', {
+            return fetch('https://backend-eliteagro-production.up.railway.app/api/products/create-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

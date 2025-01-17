@@ -1,3 +1,5 @@
+const backendUrl = "https://backend-eliteagro-production.up.railway.app"; // URL del backend
+
 // Elementos del DOM
 const productosTable = document.getElementById("productosTable");
 const loadProductos = document.getElementById("loadProductos");
@@ -28,7 +30,7 @@ function cargarTiposDeProductos() {
 // Cargar todos los productos
 async function cargarProductos() {
     try {
-        const response = await fetch("http://localhost:8080/api/products");
+        const response = await fetch(`${backendUrl}/api/products`);
         if (!response.ok) throw new Error("Error al cargar los productos.");
         const productos = await response.json();
 
@@ -59,7 +61,7 @@ async function buscarProductoPorNombre() {
         return;
     }
     try {
-        const response = await fetch(`http://localhost:8080/api/products/search?prefix=${prefix}`);
+        const response = await fetch(`${backendUrl}/api/products/search?prefix=${prefix}`);
         if (!response.ok) throw new Error("Error al buscar productos.");
         const productos = await response.json();
 
@@ -86,7 +88,7 @@ async function buscarProductoPorNombre() {
 async function cargarProductoParaEditar(event) {
     const productoId = event.target.dataset.id;
     try {
-        const response = await fetch(`http://localhost:8080/api/products/${productoId}`);
+        const response = await fetch(`${backendUrl}/api/products/${productoId}`);
         if (!response.ok) throw new Error("Error al cargar datos del producto.");
         const producto = await response.json();
 
@@ -116,7 +118,7 @@ async function guardarCambiosProducto(event) {
     };
 
     try {
-        const response = await fetch(`http://localhost:8080/api/products/${productoId}`, {
+        const response = await fetch(`${backendUrl}/api/products/${productoId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(producto)
@@ -136,7 +138,7 @@ async function eliminarProducto(event) {
     if (!confirm("¿Seguro que deseas eliminar este producto?")) return;
 
     try {
-        const response = await fetch(`http://localhost:8080/api/products/${productoId}`, {
+        const response = await fetch(`${backendUrl}/api/products/${productoId}`, {
             method: "DELETE"
         });
         if (!response.ok) throw new Error("Error al eliminar el producto.");

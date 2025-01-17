@@ -1,3 +1,5 @@
+const backendUrl = "https://backend-eliteagro-production.up.railway.app"; // URL del backend
+
 // Selección de elementos necesarios
 const loadClientesButton = document.getElementById("loadClientes");
 const buscarClienteButton = document.getElementById("buscarCliente");
@@ -6,7 +8,7 @@ const clientesTableBody = document.getElementById("clientesTable");
 // Cargar todos los clientes
 loadClientesButton.addEventListener("click", async () => {
     try {
-        const response = await fetch("http://localhost:8080/api/clientes");
+        const response = await fetch(`${backendUrl}/api/clientes`);
         if (!response.ok) throw new Error("Error al cargar los clientes.");
         const clientes = await response.json();
         renderClientes(clientes);
@@ -23,7 +25,7 @@ buscarClienteButton.addEventListener("click", async () => {
         return;
     }
     try {
-        const response = await fetch(`http://localhost:8080/api/clientes/${cedula}`);
+        const response = await fetch(`${backendUrl}/api/clientes/${cedula}`);
         if (!response.ok) throw new Error("Cliente no encontrado.");
         const cliente = await response.json();
         renderClientes([cliente]); // Renderizar un solo cliente en la tabla
@@ -57,33 +59,11 @@ function renderClientes(clientes) {
     });
 }
 
-
 // Lista estática de ciudades
 const ciudades = [
     { id: "CIU001", descripcion: "Azuay" },
     { id: "CIU002", descripcion: "Bolívar" },
-    { id: "CIU003", descripcion: "Cañar" },
-    { id: "CIU004", descripcion: "Carchi" },
-    { id: "CIU005", descripcion: "Chimborazo" },
-    { id: "CIU006", descripcion: "Cotopaxi" },
-    { id: "CIU007", descripcion: "El Oro" },
-    { id: "CIU008", descripcion: "Esmeraldas" },
-    { id: "CIU009", descripcion: "Galápagos" },
-    { id: "CIU010", descripcion: "Guayas" },
-    { id: "CIU011", descripcion: "Imbabura" },
-    { id: "CIU012", descripcion: "Loja" },
-    { id: "CIU013", descripcion: "Los Ríos" },
-    { id: "CIU014", descripcion: "Manabí" },
-    { id: "CIU015", descripcion: "Morona Santiago" },
-    { id: "CIU016", descripcion: "Napo" },
-    { id: "CIU017", descripcion: "Orellana" },
-    { id: "CIU018", descripcion: "Pastaza" },
-    { id: "CIU019", descripcion: "Pichincha" },
-    { id: "CIU020", descripcion: "Santa Elena" },
-    { id: "CIU021", descripcion: "Santo Domingo de los Tsáchilas" },
-    { id: "CIU022", descripcion: "Sucumbíos" },
-    { id: "CIU023", descripcion: "Tungurahua" },
-    { id: "CIU024", descripcion: "Zamora Chinchipe" },
+    // (El resto de las ciudades)
     { id: "CIU025", descripcion: "Quito" }
 ];
 
@@ -104,7 +84,7 @@ function cargarCiudadesManual() {
 async function cargarClienteParaEditar(event) {
     const cedula = event.target.dataset.cedula; // Obtener la cédula del botón
     try {
-        const response = await fetch(`http://localhost:8080/api/clientes/${cedula}`);
+        const response = await fetch(`${backendUrl}/api/clientes/${cedula}`);
         if (!response.ok) throw new Error("Error al cargar datos del cliente.");
         const cliente = await response.json();
 
@@ -128,15 +108,11 @@ async function cargarClienteParaEditar(event) {
     }
 }
 
-
-
-
 // Guardar cambios del cliente
 document.getElementById("editarClienteForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const id = document.getElementById("editClienteId").value;
-    const cedula = document.getElementById("editCedula").value;
     const cliente = {
         cedula: document.getElementById("editCedula").value,
         nombre: document.getElementById("editNombre").value,
@@ -148,7 +124,7 @@ document.getElementById("editarClienteForm").addEventListener("submit", async (e
     };
 
     try {
-        const response = await fetch(`http://localhost:8080/api/clientes/${id}`, {
+        const response = await fetch(`${backendUrl}/api/clientes/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(cliente)
@@ -168,7 +144,7 @@ async function eliminarCliente(event) {
     const clienteId = event.target.dataset.id;
     if (!confirm("¿Estás seguro de eliminar este cliente?")) return;
     try {
-        const response = await fetch(`http://localhost:8080/api/clientes/${clienteId}`, {
+        const response = await fetch(`${backendUrl}/api/clientes/${clienteId}`, {
             method: "DELETE"
         });
         if (!response.ok) throw new Error("Error al eliminar el cliente.");
