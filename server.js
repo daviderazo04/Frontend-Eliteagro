@@ -17,10 +17,21 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 // Configuración de la conexión a MySQL
+// const dbConfig = {
+//     host: 'localhost', // Cambia si usas un servidor remoto
+//     user: 'elite_user', // Usuario de la base de datos
+//     password: 'mi_contraseña', // Contraseña del usuario
+//     database: 'eliteagro', // Nombre de la base de datos
+//     waitForConnections: true,
+//     connectionLimit: 10,
+//     queueLimit: 0
+// };
+
+// Configuración de la conexión a MySQL
 const dbConfig = {
-    host: 'localhost', // Cambia si usas un servidor remoto
-    user: 'elite_user', // Usuario de la base de datos
-    password: 'mi_contraseña', // Contraseña del usuario
+    host: 'mysql-b37f73a-eliteagro.g.aivencloud.com', // Cambia si usas un servidor remoto
+    user: 'avnadmin', // Usuario de la base de datos
+    password: 'AVNS_fDvbdU25xAaqV60Tkx-', // Contraseña del usuario
     database: 'eliteagro', // Nombre de la base de datos
     waitForConnections: true,
     connectionLimit: 10,

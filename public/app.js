@@ -582,3 +582,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// Obtener referencia al formulario del footer
+const sugerenciaForm = document.querySelector(".footer-section form");
+
+// Escuchar el evento de envío del formulario
+sugerenciaForm.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Prevenir la recarga de la página
+
+    // Obtener los datos del formulario
+    const nombre = sugerenciaForm.querySelector("input[type='text']").value.trim();
+    const correo = sugerenciaForm.querySelector("input[type='email']").value.trim();
+    const mensaje = sugerenciaForm.querySelector("textarea").value.trim();
+
+    // Validar los campos
+    if (!nombre || !correo || !mensaje) {
+        alert("Por favor, complete todos los campos.");
+        return;
+    }
+
+    // Crear el objeto sugerencia
+    const sugerencia = {
+        sugNombre: nombre,
+        sugCorreo: correo,
+        sugMensaje: mensaje,
+        empId: "EMP0001" // Ajusta esto según tu lógica para asociar la sugerencia a una empresa
+    };
+
+    try {
+        // Enviar la sugerencia al backend
+        const response = await fetch("http://localhost:8080/api/sugerencias", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(sugerencia)
+        });
+
+        if (!response.ok) throw new Error("Error al enviar la sugerencia.");
+
+        alert("¡Sugerencia enviada exitosamente!");
+        // Limpiar el formulario
+        sugerenciaForm.reset();
+    } catch (error) {
+        alert(error.message);
+    }
+});
