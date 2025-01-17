@@ -269,6 +269,8 @@ function eliminarProducto(index) {
     cargarCarritoEnTabla();
 }
 
+const backendUrl = "https://backend-eliteagro-production.up.railway.app"; // URL del backend
+
 function confirmarCompra() {
     if (carrito.length === 0) {
         alert('El carrito está vacío.');
@@ -282,7 +284,7 @@ function confirmarCompra() {
     }
 
     // Obtener el ID del cliente desde el backend
-    fetch(`https://backend-eliteagro-production.up.railway.app/api/clients/by-email?email=${username}`)
+    fetch(`${backendUrl}/api/clients/by-email?email=${username}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('No se pudo obtener el ID del cliente.');
@@ -309,7 +311,7 @@ function confirmarCompra() {
             };
 
             // Confirmar la compra
-            return fetch('https://backend-eliteagro-production.up.railway.app/api/products/create-order', {
+            return fetch(`${backendUrl}/api/products/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
