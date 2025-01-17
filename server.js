@@ -2,12 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
+require('dotenv').config(); // Cargar variables de entorno desde Railway automáticamente
+
 const PORT = process.env.PORT || 5001;
 const app = express();
 
 // Use CORS middleware
 app.use(cors({
-    origin: 'http://localhost:5001'
+    origin: process.env.CORS_ORIGIN || 'http://localhost:5001' // Ajusta según el origen de tu frontend
 }));
 
 // Sirve archivos estáticos desde la carpeta "public"
@@ -16,23 +18,12 @@ app.use(express.static('public'));
 // Middleware para parsear JSON
 app.use(bodyParser.json());
 
-// Configuración de la conexión a MySQL
-// const dbConfig = {
-//     host: 'localhost', // Cambia si usas un servidor remoto
-//     user: 'elite_user', // Usuario de la base de datos
-//     password: 'mi_contraseña', // Contraseña del usuario
-//     database: 'eliteagro', // Nombre de la base de datos
-//     waitForConnections: true,
-//     connectionLimit: 10,
-//     queueLimit: 0
-// };
-
-// Configuración de la conexión a MySQL
+// Configuración de la conexión a MySQL usando variables de entorno
 const dbConfig = {
-    host: 'mysql-b37f73a-eliteagro.g.aivencloud.com', // Cambia si usas un servidor remoto
-    user: 'avnadmin', // Usuario de la base de datos
-    password: 'AVNS_fDvbdU25xAaqV60Tkx-', // Contraseña del usuario
-    database: 'eliteagro', // Nombre de la base de datos
+    host: process.env.MYSQLHOST, // Variable de entorno para el host
+    user: process.env.MYSQLUSER, // Variable de entorno para el usuario
+    password: process.env.MYSQLPASSWORD, // Variable de entorno para la contraseña
+    database: process.env.MYSQLDATABASE, // Variable de entorno para el nombre de la base de datos
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
@@ -41,11 +32,12 @@ const dbConfig = {
 // Crear un pool de conexiones
 const pool = mysql.createPool(dbConfig);
 
+// Ruta principal
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index_updated.html');
 });
 
-
+// Ruta para registrar un usuario
 app.post('/submit', async (req, res) => {
     const { nombre, apellido, cedula, email, password, telefono, ciudad, fechaNacimiento, genero } = req.body;
 
@@ -100,12 +92,7 @@ app.post('/submit', async (req, res) => {
     }
 });
 
-
 // Iniciar el servidor
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en: http://localhost:${PORT}`);
 });
-
-//app.listen(3000, '172.16.1.73', () => {
-//    console.log('Servidor escuchando en http://172.16.1.73:3000');
-//});
