@@ -51,7 +51,7 @@ app.post('/submit', async (req, res) => {
 
             // Insertar datos en la tabla USUARIO
             const usuarioQuery = `
-                INSERT INTO USUARIO (USR_EMAIL, USR_PASSWORD, ROL_ID) 
+                INSERT INTO usuario (USR_EMAIL, USR_PASSWORD, ROL_ID) 
                 VALUES (?, ?, ?)
             `;
             await connection.query(usuarioQuery, [
